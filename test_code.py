@@ -3,7 +3,6 @@ import cv2
 import numpy as np
 import time
 
-# Hàm xử lý watershed
 prev_sure_fg = None
 def process_watershed(frame, mask):
     global prev_sure_fg
@@ -29,7 +28,6 @@ def process_watershed(frame, mask):
     sure_fg = cv2.dilate(sure_fg, kernel_n, iterations=2)
     sure_fg = cv2.morphologyEx(sure_fg, cv2.MORPH_CLOSE, kernel_n, iterations=4)
 
-    # Làm mượt giữa các frame
     if prev_sure_fg is not None:
         sure_fg = cv2.addWeighted(sure_fg.astype(np.uint8), 0.7, prev_sure_fg.astype(np.uint8), 0.3, 0)
     prev_sure_fg = sure_fg.copy()
