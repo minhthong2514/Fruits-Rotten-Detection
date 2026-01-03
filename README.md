@@ -83,8 +83,14 @@ The confusion matrix indicates that the model classifies apples, bananas, and or
   <br>
   <em>Fresh orange detection</em>
 </p>
+<p align="center">
+  <img src="imgs/no_cuda.png" width="600">
+  <br>
+  <em>Detect without gpu-cuda</em>
+</p>
 
-The results are promising, with a high frame rate of approximately **24 FPS** on an *NVIDIA GTX 3080 (CUDA)*, which is sufficient for real-time performance.   
+The results are promising, with a high frame rate of approximately **24 FPS** on an **NVIDIA GTX 3080 (CUDA)**, which is sufficient for real-time performance.
+As shown in the figure below, when CUDA-GPU acceleration is not used, the frame rate drops to around 5–6 FPS. Although this does not meet real-time requirements, the model still produces accurate and reliable results.
 ## Watershed Segmentation
 
 After obtaining the binary masks from the YOLOv8 segmentation model, the Watershed segmentation algorithm is applied to detect damaged regions on the fruit surface. However, the parameters for the Watershed process have not yet been fully optimized, so the damaged area segmentation results are still limited and do not meet the expected performance.
